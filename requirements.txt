@@ -1,20 +1,44 @@
-# Core server and web framework
 fastapi==0.110.0
 uvicorn[standard]==0.29.0
 
-# LangChain and Groq integration
+# Compatible LangChain versions
 langchain==0.1.15
 langchain-core==0.1.47
-langchain-community==0.2.15
-langchain-prompts==0.1.5
+langchain-community==0.0.36
+langchain-text-splitters==0.0.1
+langchain-prompts==0.1.3
 langchain-groq==0.1.9
 
-# For parsing & regex use
-pydantic==2.7.1
-regex
+# PDF, unstructured
+unstructured==0.15.0
+unstructured[pdf]==0.15.0
 
-# CORS and static files support
+# NLP
+nltk==3.8.1
+
+# Validation
+pydantic==2.7.1
+
+# CORS + File Upload
 python-multipart==0.0.9
 
+# Core server and web framework
+#fastapi==0.110.0
+#uvicorn[standard]==0.29.0
+
+# LangChain and Groq integration
+#langchain==0.1.15
+#langchain-core==0.1.47
+#langchain-community==0.2.15
+#langchain-prompts==0.1.5
+#langchain-groq==0.1.9
+
+# For parsing & regex use
+#pydantic==2.7.1
+#regex
+
+# CORS and static files support
+#python-multipart==0.0.9
+
 # Optional: For stricter dependency resolution (if needed)
-httpx==0.27.0
+#httpx==0.27.0
