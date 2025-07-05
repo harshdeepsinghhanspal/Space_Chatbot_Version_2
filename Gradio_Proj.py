@@ -26,6 +26,38 @@ space_keywords = [
     "turkish space agency", "tua", "austrian space agency", "belgian institute for space aeronomy",
     "norwegian space agency", "luxembourg space agency", "lsa", "thai space agency", "gistda",
     "nigerian space research and development agency", "nasrda", "egyptian space agency", "egsa",
+    #astronauts
+    "yuri gagarin", "neil armstrong", "buzz aldrin", "valentina tereshkova",
+    "alan shepard", "john glenn", "ed white", "frank borman", "jim lovell",
+    "william anders", "michael collins", "david scott", "james irwin",
+    "ronald evans", "don eisele", "joe engle", "jeanette epps", 
+    "joe edwards", "tracy caldwell", "clayton anderson", "michael foreman",
+    "scott kelly", "mark kelly", "sunita williams", "peggy whitson",
+    "christina koch", "jessica meir", "chris hadfield", "luca parmitano",
+    "jean-loup chrétien", "claudie haignere", "wubbo ockels", "sigmund jahn",
+    "vladimír remek", "rakesh sharma", "pham tuan", "arnaldo tamayo mendez",
+    "guion bluford", "franklin chang-diaz", "helen sharman", "marcos pontes",
+    "pedro duque", "yi so-yeon", "sultan ibn salman al saud", "marc garneau",
+    "julie payette", "robert thirsk", "ilian ramon", "raja chari",
+    "anil menon", "kalpana chawla", "hazza al mansouri", "anousheh ansari",
+    "dennis tito", "mark shuttleworth", "gregory olsen", "charles simonyi",
+    "richard garriott", "guy laliberté", "yusaku maezawa", "jared isaacman",
+    "mike melvill", "edgar mitchell", "fred haise", "jack swigert",
+    "stuart roosa", "al worden", "ken mattingly", "tom stafford",
+    "frank de winne", "andre kuipers", "paolo nespoli", "hans schlegel",
+    "roberto vittori", "leopold eyharts", "mikhail kornienko", 
+    "yury lonchakov", "sergei volkov", "aleksandr skvortsov",
+    "dmitri kondratyev", "paul richards", "ivan bella", "michal fulier",
+    "chen quan", "fei junlong", "yang liwei", "zhai zhigang",
+    "nie haisheng", "liu wang", "jing haipeng", "liu boming",
+    "rai barnawi", "ali alqarni", "mariam fardous", "alper gezeravci",
+    "tuva cihangir atasever", "katherine bennell pegg", "sophie adenot",
+    "pablo alvarez fernandez",
+    "serena aunon-chancellor", "victor glover", "kate rubins", "doug hurley",
+    "bob behnken", "ellen ochoa", "mae jemison", "janet kavandi", "stephanie wilson",
+    "jessica watkins", "jeremy hansen", "takuya onishi", "koichi wakata", 
+    "akihiko hoshide", "soichi noguchi", "nicole mann", "michael hopkins",
+    "shannon walker", "thomas pesquet", "alexander gerst", "samantha cristoforetti",
     # Famous scientists and pioneers in space science
     "vikram sarabhai", "abdul kalam", "satish dhawan", "k kasturirangan", "ur rao",
     "mylswamy annadurai", "k sivan", "s somanath", "radhakrishnan kappagantu", "tessy thomas",
@@ -68,7 +100,7 @@ space_keywords = [
     # Rovers
     "sojourner", "spirit", "opportunity", "curiosity", "perseverance", "pragyan", "zhurong",
     "luna 17", "luna 21", "yaoki", "rashid", "exomars rover", "marsokhod", "resource prospector",
-    "volatiles investigating polar exploration rover", "vipER",
+    "volatiles investigating polar exploration rover", "viper",
     # Rockets / Launch vehicles
     "pslv", "gslv", "gslv mk iii", "lvm3", "agni", "slv", "aslv", "falcon 1", "falcon 9",
     "falcon heavy", "starship", "sls", "atlas v", "delta iv", "ariane 5", "ariane 6",
@@ -114,7 +146,7 @@ space_keywords = [
     "spacesuit", "spacewalk", "extravehicular activity", "life support system", "planetary ring",
     "ring system",
     # Fiction & cultural references
-    "2001 a space odyssey", "star trek", "star wars", "the expanse", "x-files", "contact",
+    "2001 a space odyssey", "star trek","starwars", "star wars", "the expanse", "x-files", "contact",
     # Colonization & infrastructure
     "terraforming", "space colonization", "space elevator"
 ]
@@ -134,19 +166,19 @@ app.add_middleware(
 )
 
 # Set the environment variable for the GROQ API key
-os.environ["GROQ_API_KEY"] = "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"
+os.environ["GROQ_API_KEY"] = "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"
 
 llm = ChatGroq(
     temperature=0.3,
-    model_name="llama-3.1-8b-instant",
+    model_name="llama-3.3-70b-versatile",
     max_tokens=512
 )
 
 prompt = ChatPromptTemplate.from_messages([
     ("system",
      "You are a knowledgeable and concise assistant specialized in answering questions related to space and astronomy. "
-     "You can explain concepts about planets, rockets, satellites, space agencies, cosmology, astrophysics, and extraterrestrial phenomena. "
-     "Only respond to space-related topics and ignore unrelated queries."),
+     "You can explain concepts about planets, rockets, satellites, space agencies, astronauts, scientists, cosmology, astrophysics, and extraterrestrial phenomena. "
+     "Only respond to space-related topics and ignore unrelated queries. Avoid repeating sentences or phrases in your responses. Be accurate, brief, and clear."),
     ("user", "{input}")
 ])
 
