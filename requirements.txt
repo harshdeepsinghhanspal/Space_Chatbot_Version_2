@@ -1,15 +1,12 @@
+# Core framework
 fastapi==0.110.0
 uvicorn[standard]==0.29.0
 
-# Compatible LangChain versions
-langchain==0.1.15
-langchain-core==0.1.48
-langchain-community==0.0.36
+# LangChain v0.2.x ecosystem (fully aligned)
+langchain==0.2.6
+langchain-core==0.2.26
+langchain-community==0.2.3
 langchain-groq==0.1.9
-
-# Skip langchain-prompts and text-splitters for now
-# unless you're specifically using their APIs
-# They're either not needed or tightly coupled with core/langchain already
 
 # PDF, unstructured
 unstructured==0.15.0
